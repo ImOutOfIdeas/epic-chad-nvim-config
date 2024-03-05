@@ -1,9 +1,10 @@
 -- Require indiviual configuration files
-require("plugin_configs/bindings")
+require("plugin_configs/nvim_config")
 require("plugin_configs/harpoon_config")
 require("plugin_configs/telescope_config")
 require("plugin_configs/lsp_config")
-require("plugin_configs/onedark_config")
+require("plugin_configs/tree_config")
+require("plugin_configs/theme_config")
 
 -- Automatically install packer
 local fn = vim.fn
@@ -50,8 +51,8 @@ return packer.startup(function(use)
 
     use("nvim-treesitter/nvim-treesitter")
     use("nvim-lua/plenary.nvim")
+    use("nvim-tree/nvim-tree.lua")
     use("navarasu/onedark.nvim")
-    use("BurntSushi/ripgrep")
     use("nvim-telescope/telescope.nvim")
     use {
         "ThePrimeagen/harpoon",
@@ -62,10 +63,9 @@ return packer.startup(function(use)
 	    'VonHeikemen/lsp-zero.nvim',
 	    branch = 'v3.x',
 	    requires = {
-		    --- Uncomment the two plugins below if you want to manage the language servers from neovim
+		    --- Plugins to manage the language servers from neovim
 		    {'williamboman/mason.nvim'},
 		    {'williamboman/mason-lspconfig.nvim'},
-
 		    -- LSP Support
 		    {'neovim/nvim-lspconfig'},
 		    -- Autocompletion
